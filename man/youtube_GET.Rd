@@ -4,7 +4,7 @@
 \alias{youtube_GET}
 \title{YouTube Get Function}
 \usage{
-youtube_GET(url, request, token = getOption(file))
+youtube_GET(url, request, token = getOption("YouTube_Token"))
 }
 \value{
 data.frame

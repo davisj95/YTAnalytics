@@ -14,7 +14,7 @@
 youtube_GET <- function(url, request, token = getOption("YouTube_Token")){
   r <- httr::GET(url, token)
   temp <- jsonlite::fromJSON(paste0(rawToChar(r$content)))
-  if(status_code(r) != 200) {
+  if(httr::status_code(r) != 200) {
     errorMessage <- temp$error$errors
     stop(errorMessage)
   }
