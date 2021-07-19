@@ -22,7 +22,7 @@ video_captions <- function(videoId = NULL) {
   captionId <- temp1$items$id
 
   captionDownloadUrl <- paste0("https://www.googleapis.com/youtube/v3/captions/", captionId,"?tfmt=vtt")
-  temp2 <- GET(captionDownloadUrl, getOption("YouTubeToken"))
+  temp2 <- GET(captionDownloadUrl, getOption("YouTube_Token"))
   captions <- rawToChar(temp2$content)
   return(captions)
 }

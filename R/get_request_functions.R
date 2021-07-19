@@ -11,7 +11,7 @@
 #' @export
 #'
 
-youtube_GET <- function(url, request, token = getOption(file)){
+youtube_GET <- function(url, request, token = getOption("YouTube_Token")){
   r <- httr::GET(url, token)
   temp <- jsonlite::fromJSON(paste0(rawToChar(r$content)))
   if(status_code(r) != 200) {
