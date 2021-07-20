@@ -1,4 +1,4 @@
-# YTAnalytics: R Wrapper for YouTube Analytics API
+# ![](https://cdn.emojidex.com/emoji/px32/YouTube.png?1512927079) YTAnalytics: R Wrapper for YouTube Analytics API
 
 ## Overview
 This is an R wrapper for the YouTube Analytics API. You can use this to get channel, 
