@@ -2,7 +2,7 @@
 
 ## Overview
 This is an R wrapper for the YouTube Analytics API. You can use this to get channel, 
-playlist, and video data just like what is found in YouTube Studio. Helpful data includes:
+playlist, and video data for your YouTube channel - just like what is found in YouTube Studio. Helpful data includes:
  * Daily Views
  * Countries
  * Demographics (Age/Gender)
