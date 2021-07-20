@@ -14,7 +14,7 @@
 #' @export
 #'
 
-youtube_oauth <- function(appId = NULL, appSecret = NULL, token = NULL) {
+youtube_oauth <- function(appId = NULL, appSecret = NULL, token = ".httr-oauth") {
   if (!is.null(token) && file.exists(token)) {
 
     YouTubeToken <- try(suppressWarnings(readRDS(token)), silent = TRUE)[[1]]
