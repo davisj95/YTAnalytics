@@ -28,6 +28,6 @@ top_function <- function(dimension, ...) {
 
 
   temp <- analytics_request(dimensions = dim, metrics = met, sort = sor, maxResults = res,
-                            filters = fil, startDate = srt, endDate = end)
+                            filters = fil, startDate = srt, endDate = end, ...)
   return(temp)
 }

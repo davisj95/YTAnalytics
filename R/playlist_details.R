@@ -15,7 +15,7 @@
 #' @export
 #'
 
-playlist_details <- function(playlistId = NULL) {
-  temp <- data_playlist_request(part = "snippet", id = playlistId)
+playlist_details <- function(playlistId = NULL, ...) {
+  temp <- data_playlist_request(part = "snippet", id = playlistId, ...)
   return(temp)
 }

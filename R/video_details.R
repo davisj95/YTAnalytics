@@ -19,6 +19,6 @@
 
 
 video_details <- function(videoId = NULL, ...) {
-  temp <- data_video_request(part = "contentDetails", id = videoId)
+  temp <- data_video_request(part = "contentDetails", id = videoId, ...)
   return(temp$items)
 }

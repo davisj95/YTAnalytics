@@ -16,7 +16,7 @@
 #'
 
 
-playlist_videos <- function(playlistId = NULL) {
-  temp <- data_playlistItem_request(part = "contentDetails", playlistId = playlistId, maxResults = 50)
+playlist_videos <- function(playlistId = NULL, ...) {
+  temp <- data_playlistItem_request(part = "contentDetails", playlistId = playlistId, maxResults = 50, ...)
   return(temp)
 }

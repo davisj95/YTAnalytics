@@ -50,7 +50,7 @@ youtube_GET <- function(url, request, token = getOption("YouTube_Token")){
 
 analytics_request <- function(dimensions = NULL, metrics = NULL, sort = NULL,
                               maxResults = NULL, filters = NULL, startDate = "2000-01-01",
-                              endDate = Sys.Date()) {
+                              endDate = Sys.Date(), ...) {
 
   url <- paste0("https://youtubeanalytics.googleapis.com/v2/reports?",
                 "&ids=channel%3D%3DMINE",
@@ -84,7 +84,7 @@ analytics_request <- function(dimensions = NULL, metrics = NULL, sort = NULL,
 
 data_channel_request <- function(part = NULL, categoryId = NULL, forUsername = NULL, hl = NULL,
                                  id = NULL, managedByMe = NULL, maxResults = 5, mine = NULL,
-                                 mySubscribers = NULL, onBehalfOfContentOwner = NULL, pageToken = NULL) {
+                                 mySubscribers = NULL, onBehalfOfContentOwner = NULL, pageToken = NULL, ...) {
 
   url <- paste0("https://www.googleapis.com/youtube/v3/channels?part=",
                 part, "&maxResults=", maxResults)
@@ -120,7 +120,7 @@ data_channel_request <- function(part = NULL, categoryId = NULL, forUsername = N
 
 data_playlist_request <- function(part = NULL, channelId = NULL, hl = NULL, id = NULL,
                                   maxResults = 5, mine = NULL, onBehalfOfContentOwner = NULL,
-                                  onBehalfOfContentOwnerChannel = NULL, pageToken = NULL) {
+                                  onBehalfOfContentOwnerChannel = NULL, pageToken = NULL, ...) {
 
   url <- paste0("https://www.googleapis.com/youtube/v3/playlists?part=",
                 part, "&maxResults=", maxResults)
@@ -167,7 +167,7 @@ data_playlist_request <- function(part = NULL, channelId = NULL, hl = NULL, id =
 
 data_playlistItem_request <- function(part = NULL, id = NULL, maxResults = 5,
                                       onBehalfOfContentOwner = NULL, pageToken = NULL,
-                                      playlistId = NULL, videoId = NULL) {
+                                      playlistId = NULL, videoId = NULL, ...) {
 
   url <- paste0("https://www.googleapis.com/youtube/v3/playlistItems?part=",
                 part, "&maxResults=", maxResults)
@@ -214,7 +214,7 @@ data_playlistItem_request <- function(part = NULL, id = NULL, maxResults = 5,
 data_video_request <- function(part = NULL, chart = NULL, hl = NULL, id = NULL, locale = NULL,
                                maxHeight = NULL, maxResults = NULL, maxWidth = NULL,
                                myRating = NULL, onBehalfOfContentOwner = NULL, pageToken = NULL,
-                               regionCode = NULL, videoCategoryId = NULL) {
+                               regionCode = NULL, videoCategoryId = NULL, ...) {
 
   url <- paste0("https://www.googleapis.com/youtube/v3/videos?part=", part)
 

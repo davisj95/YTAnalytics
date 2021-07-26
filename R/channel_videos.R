@@ -13,10 +13,10 @@
 #' @export
 #'
 
-channel_videos <- function() {
-  channelData <- channel_details(part = "contentDetails")
+channel_videos <- function(...) {
+  channelData <- channel_details(part = "contentDetails", ...)
   uploads <- channelData$contentDetails$relatedPlaylists$uploads
   temp <- data_playlistItem_request(part = "contentDetails",
-                                    playlistId = uploads, maxResults = 50)
+                                    playlistId = uploads, maxResults = 50, ...)
   return(temp)
 }

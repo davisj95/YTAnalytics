@@ -16,8 +16,8 @@
 #'
 
 
-video_captions <- function(videoId = NULL) {
-  captionListUrl <- paste0("https://www.googleapis.com/youtube/v3/captions?part=id&videoId=", videoId)
+video_captions <- function(videoId = NULL, ...) {
+  captionListUrl <- paste0("https://www.googleapis.com/youtube/v3/captions?part=id&videoId=", videoId, ...)
   temp1 <- youtube_GET(captionListUrl, request = "data")
   captionId <- temp1$items$id
 
