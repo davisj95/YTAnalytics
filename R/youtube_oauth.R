@@ -32,7 +32,7 @@ youtube_oauth <- function(appId = NULL, appSecret = NULL, token = ".httr-oauth")
                                          cache = token)
   }
   tokenOption <- list(YouTubeToken)
-  names(tokenOption) <- "YouTube_Token"
+  names(tokenOption) <- token
   options(tokenOption)
   return(YouTubeToken)
 }
