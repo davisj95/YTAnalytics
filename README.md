@@ -12,7 +12,7 @@ playlist, and video data for your YouTube channel - just like what is found in Y
  * etc. etc.
  
 ## Details
-Essentially, `YTAnalytics` is built around one main function - `analytics_request()` which acts as the wrapper 
+`YTAnalytics` is built around one main function - `analytics_request()` which acts as the wrapper 
 for the YouTube Analytics API. `youtube_GET` simplifies making `GET` requests using `httr::GET` and structuring
 the returned data in a data.frame.
 
