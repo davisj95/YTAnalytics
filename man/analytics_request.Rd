@@ -2,7 +2,7 @@
 % Please edit documentation in R/utils.R
 \name{analytics_request}
 \alias{analytics_request}
-\title{Analytics Request Function}
+\title{Analytics Request Function - YouTube Analytics API}
 \usage{
 analytics_request(
   dimensions = NULL,
@@ -23,29 +23,43 @@ analytics_request(
 \item{dimensions}{String. See \url{https://developers.google.com/youtube/analytics/dimensions}
 for valid arguments.}
 
-\item{metrics}{}
+\item{metrics}{String. See \url{https://developers.google.com/youtube/analytics/metrics}
+for valid arguments.}
 
-\item{sort}{}
+\item{sort}{String. Specify by which metric/dimensions to sort output if applicable.}
 
-\item{maxResults}{}
+\item{maxResults}{Integer. Specify the number of results to return. Maximum is 200.}
 
-\item{filters}{}
+\item{filters}{String. Specify dimension to filter on if applicable. Ex: video==dQw4w9WgXcQ}
 
-\item{startDate}{}
+\item{startDate}{Required. String specifying start date.}
 
-\item{endDate}{}
+\item{endDate}{Required. String specifying end date.}
 
-\item{ids}{}
+\item{ids}{Required. Specify the channel. By default the function will specify \code{"channel==MINE"}}
 
-\item{currency}{}
+\item{currency}{String. Specify currency if applicable}
 
-\item{startIndex}{}
+\item{startIndex}{Integer. Specify index of first entity to retrieve, if applicable.}
 
-\item{includeHistoricalChannelData}{}
+\item{includeHistoricalChannelData}{String. Indicates whether the API response should include
+channels' watch time and view data from the time period prior
+to when the channels were linked to the content owner. Only
+applies to content owner reports. Either 'true' or 'false'.}
 
-\item{token}{}
+\item{token}{Required.}
+}
+\value{
+data.frame
 }
 \description{
 This is the function to make API calls to the YouTube Analytics API. Most other
 functions in this package are wrappers for this function with some arguments already populated.
+}
+\examples{
+\dontrun{
+analytics_request(startDate = "2018-05-01",
+                  endDate = "2017-01-01",
+                  metrics = "views,comments,likes,dislikes,estimatedMinutesWatched")
+}
 }

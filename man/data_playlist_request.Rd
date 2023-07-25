@@ -2,7 +2,7 @@
 % Please edit documentation in R/utils.R
 \name{data_playlist_request}
 \alias{data_playlist_request}
-\title{Title}
+\title{Playlist Data Requests - YouTube Data API}
 \usage{
 data_playlist_request(
   part = NULL,
@@ -18,26 +18,40 @@ data_playlist_request(
 )
 }
 \arguments{
-\item{part}{}
+\item{part}{Required. String.}
 
-\item{channelId}{}
+\item{channelId}{String.}
 
-\item{hl}{}
+\item{hl}{String.}
 
-\item{id}{}
+\item{id}{String.}
 
-\item{maxResults}{}
+\item{maxResults}{Integer.}
 
-\item{mine}{}
+\item{mine}{String}
 
-\item{onBehalfOfContentOwner}{}
+\item{onBehalfOfContentOwner}{String.}
 
-\item{onBehalfOfContentOwnerChannel}{}
+\item{onBehalfOfContentOwnerChannel}{String.}
 
-\item{pageToken}{}
+\item{pageToken}{String.}
 
-\item{token}{}
+\item{token}{Required.}
+}
+\value{
+data.frame
 }
 \description{
-Title
+This is a function to make API calls to the YouTube Data API for playlist specific data.
+While it can be called directly, it is primarily intended to help get lists of videos within
+a playlist. For more in-depth use of the Data API, please refer to \code{tuber}. For
+more details on the following arguments, please refer to
+\url{https://developers.google.com/youtube/v3/docs/playlists/list}
+}
+\examples{
+\dontrun{
+data_playlist_request(part = "contentDetails",
+                      id = "PLA2387dsgkhfs9832hjkhuihsASDF",
+                      mine = "true")
+}
 }

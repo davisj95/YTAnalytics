@@ -2,7 +2,7 @@
 % Please edit documentation in R/utils.R
 \name{data_video_request}
 \alias{data_video_request}
-\title{Title}
+\title{Video Data Requests - YouTube Data API}
 \usage{
 data_video_request(
   part = NULL,
@@ -22,34 +22,47 @@ data_video_request(
 )
 }
 \arguments{
-\item{part}{}
+\item{part}{Required. String}
 
-\item{chart}{}
+\item{chart}{String.}
 
-\item{hl}{}
+\item{hl}{String.}
 
-\item{id}{}
+\item{id}{String.}
 
-\item{locale}{}
+\item{locale}{String.}
 
-\item{maxHeight}{}
+\item{maxHeight}{Integer.}
 
-\item{maxResults}{}
+\item{maxResults}{Integer.}
 
-\item{maxWidth}{}
+\item{maxWidth}{Integer.}
 
-\item{myRating}{}
+\item{myRating}{String.}
 
-\item{onBehalfOfContentOwner}{}
+\item{onBehalfOfContentOwner}{String.}
 
-\item{pageToken}{}
+\item{pageToken}{String.}
 
-\item{regionCode}{}
+\item{regionCode}{String.}
 
-\item{videoCategoryId}{}
+\item{videoCategoryId}{String.}
 
-\item{token}{}
+\item{token}{Required.}
+}
+\value{
+data.frame()
 }
 \description{
-Title
+This is a function to make API calls to the YouTube Data API for video data.
+While it can be called directly, it is primarily inteded to help get metadata about videos
+such as title or description. For more in-depth use of the Data API, please refer to
+\code{tuber}. For more details on the following arguments, please refer to
+\url{https://developers.google.com/youtube/v3/docs/videos/list}
+}
+\examples{
+\dontrun{
+data_video_request(part = "contentDetails",
+                          id = "dQw4w9WgXcQ")
+}
 }

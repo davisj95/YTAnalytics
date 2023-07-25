@@ -2,7 +2,7 @@
 % Please edit documentation in R/utils.R
 \name{data_channel_request}
 \alias{data_channel_request}
-\title{Title}
+\title{Channel Data Requests - YouTube Data API}
 \usage{
 data_channel_request(
   part = NULL,
@@ -13,37 +13,47 @@ data_channel_request(
   managedByMe = NULL,
   maxResults = 5,
   mine = NULL,
-  mySubscribers = NULL,
   onBehalfOfContentOwner = NULL,
   pageToken = NULL,
   token = getOption("YouTube_Token")
 )
 }
 \arguments{
-\item{part}{}
+\item{part}{Required. String.}
 
-\item{categoryId}{}
+\item{categoryId}{String.}
 
-\item{forUsername}{}
+\item{forUsername}{String.}
 
-\item{hl}{}
+\item{hl}{String.}
 
-\item{id}{}
+\item{id}{String.}
 
-\item{managedByMe}{}
+\item{managedByMe}{String.}
 
-\item{maxResults}{}
+\item{maxResults}{Integer.}
 
-\item{mine}{}
+\item{mine}{String.}
 
-\item{mySubscribers}{}
+\item{onBehalfOfContentOwner}{String.}
 
-\item{onBehalfOfContentOwner}{}
+\item{pageToken}{String.}
 
-\item{pageToken}{}
-
-\item{token}{}
+\item{token}{Required.}
+}
+\value{
+data.frame
 }
 \description{
-Title
+This is a function to make API calls to the YouTube Data API for channel specific data.
+While it can be called directly, it is primarily intended to help get lists of videos within
+a channel. For more in-depth use of the Data API, please refer to \code{tuber}. For
+more details on the following arguments, please refer to
+\url{https://developers.google.com/youtube/v3/docs/channels/list}
+}
+\examples{
+\dontrun{
+data_channel_request(part = "contentDetails",
+                     mine = "true")
+}
 }

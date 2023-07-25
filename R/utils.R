@@ -57,7 +57,14 @@ youtube_GET <- function(url = NULL, request = NULL, token = getOption("YouTube_T
 }
 
 
-#' Analytics Request Function
+
+
+
+
+
+
+
+#' Analytics Request Function - YouTube Analytics API
 #' 
 #' This is the function to make API calls to the YouTube Analytics API. Most other
 #' functions in this package are wrappers for this function with some arguments already populated.
@@ -84,6 +91,12 @@ youtube_GET <- function(url = NULL, request = NULL, token = getOption("YouTube_T
 #' @export
 #'
 #' @examples
+#' \dontrun{
+#' analytics_request(startDate = "2018-05-01",
+#'                   endDate = "2017-01-01",
+#'                   metrics = "views,comments,likes,dislikes,estimatedMinutesWatched")
+#' }
+
 analytics_request <- function(dimensions = NULL, metrics = NULL, sort = NULL,
                               maxResults = NULL, filters = NULL, startDate = "2000-01-01",
                               endDate = Sys.Date(), ids = "channel==MINE",currency = NULL,
@@ -101,28 +114,46 @@ analytics_request <- function(dimensions = NULL, metrics = NULL, sort = NULL,
 }
 
 
-#' Title
+
+
+
+
+
+
+
+
+#' Channel Data Requests - YouTube Data API
+#' 
+#' This is a function to make API calls to the YouTube Data API for channel specific data. 
+#' While it can be called directly, it is primarily intended to help get lists of videos within
+#' a channel. For more in-depth use of the Data API, please refer to \code{tuber}. For
+#' more details on the following arguments, please refer to 
+#' \url{https://developers.google.com/youtube/v3/docs/channels/list}
 #'
-#' @param part 
-#' @param categoryId 
-#' @param forUsername 
-#' @param hl 
-#' @param id 
-#' @param managedByMe 
-#' @param maxResults 
-#' @param mine 
-#' @param mySubscribers 
-#' @param onBehalfOfContentOwner 
-#' @param pageToken 
-#' @param token 
+#' @param part Required. String. 
+#' @param categoryId String.
+#' @param forUsername String. 
+#' @param hl String. 
+#' @param id String. 
+#' @param managedByMe String.
+#' @param maxResults Integer.
+#' @param mine String.
+#' @param onBehalfOfContentOwner String.
+#' @param pageToken String.
+#' @param token Required.
 #'
-#' @return
+#' @return data.frame
 #' @export
 #'
 #' @examples
+#' \dontrun{
+#' data_channel_request(part = "contentDetails",
+#'                      mine = "true")
+#' }
+
 data_channel_request <- function(part = NULL, categoryId = NULL, forUsername = NULL, hl = NULL,
                                  id = NULL, managedByMe = NULL, maxResults = 5, mine = NULL,
-                                 mySubscribers = NULL, onBehalfOfContentOwner = NULL, pageToken = NULL,
+                                 onBehalfOfContentOwner = NULL, pageToken = NULL,
                                  token = getOption("YouTube_Token")) {
   
   baseUrl <- "https://www.googleapis.com/youtube/v3/channels?part="
@@ -135,23 +166,45 @@ data_channel_request <- function(part = NULL, categoryId = NULL, forUsername = N
 }
 
 
-#' Title
+
+
+
+
+
+
+
+
+
+
+#' Playlist Data Requests - YouTube Data API
+#' 
+#' This is a function to make API calls to the YouTube Data API for playlist specific data.
+#' While it can be called directly, it is primarily intended to help get lists of videos within
+#' a playlist. For more in-depth use of the Data API, please refer to \code{tuber}. For
+#' more details on the following arguments, please refer to
+#' \url{https://developers.google.com/youtube/v3/docs/playlists/list}
 #'
-#' @param part 
-#' @param channelId 
-#' @param hl 
-#' @param id 
-#' @param maxResults 
-#' @param mine 
-#' @param onBehalfOfContentOwner 
-#' @param onBehalfOfContentOwnerChannel 
-#' @param pageToken 
-#' @param token 
+#' @param part Required. String.
+#' @param channelId String.
+#' @param hl String.
+#' @param id String.
+#' @param maxResults Integer. 
+#' @param mine String
+#' @param onBehalfOfContentOwner String.
+#' @param onBehalfOfContentOwnerChannel String.
+#' @param pageToken String.
+#' @param token Required.
 #'
-#' @return
+#' @return data.frame
 #' @export
 #'
 #' @examples
+#' \dontrun{
+#' data_playlist_request(part = "contentDetails",
+#'                       id = "PLA2387dsgkhfs9832hjkhuihsASDF",
+#'                       mine = "true")
+#' }
+
 data_playlist_request <- function(part = NULL, channelId = NULL, hl = NULL, id = NULL,
                                   maxResults = 5, mine = NULL, onBehalfOfContentOwner = NULL,
                                   onBehalfOfContentOwnerChannel = NULL, pageToken = NULL,
@@ -183,21 +236,43 @@ data_playlist_request <- function(part = NULL, channelId = NULL, hl = NULL, id =
 }
 
 
-#' Title
+
+
+
+
+
+
+
+
+
+
+#' Playlist Item Data Requests - YouTube Data API
+#' 
+#' This is a function to make API calls to the YouTube Data API for playlist item data.
+#' While it can be called directly, it is primarily intended to help get lists of videos within
+#' a playlist. For more in-depth use of the Data API, please refer to \code{tuber}. For
+#' more details on the following arguments, please refer to
+#' \url{https://developers.google.com/youtube/v3/docs/playlistItems/list}
 #'
-#' @param part 
-#' @param id 
-#' @param maxResults 
-#' @param onBehalfOfContentOwner 
-#' @param pageToken 
-#' @param playlistId 
-#' @param videoId 
-#' @param token 
+#' @param part Required. String.
+#' @param id String.
+#' @param maxResults Integer. 
+#' @param onBehalfOfContentOwner String. 
+#' @param pageToken String.
+#' @param playlistId String.
+#' @param videoId String.
+#' @param token Required.
 #'
-#' @return
+#' @return data.frame
 #' @export
 #'
 #' @examples
+#' \dontrun{
+#' data_playlistItem_request(part = "contentDetails",
+#'                           id = "PLA2387dsgkhfs9832hjkhuihsASDF",
+#'                           mine = "true")
+#' }
+
 data_playlistItem_request <- function(part = NULL, id = NULL, maxResults = 5,
                                       onBehalfOfContentOwner = NULL, pageToken = NULL,
                                       playlistId = NULL, videoId = NULL,
@@ -229,27 +304,48 @@ data_playlistItem_request <- function(part = NULL, id = NULL, maxResults = 5,
 }
 
 
-#' Title
+
+
+
+
+
+
+
+
+
+
+#' Video Data Requests - YouTube Data API
+#' 
+#' This is a function to make API calls to the YouTube Data API for video data.
+#' While it can be called directly, it is primarily inteded to help get metadata about videos
+#' such as title or description. For more in-depth use of the Data API, please refer to
+#' \code{tuber}. For more details on the following arguments, please refer to
+#' \url{https://developers.google.com/youtube/v3/docs/videos/list}
 #'
-#' @param part 
-#' @param chart 
-#' @param hl 
-#' @param id 
-#' @param locale 
-#' @param maxHeight 
-#' @param maxResults 
-#' @param maxWidth 
-#' @param myRating 
-#' @param onBehalfOfContentOwner 
-#' @param pageToken 
-#' @param regionCode 
-#' @param videoCategoryId 
-#' @param token 
+#' @param part Required. String
+#' @param chart String.
+#' @param hl String.
+#' @param id String.
+#' @param locale String.
+#' @param maxHeight Integer.
+#' @param maxResults Integer.
+#' @param maxWidth Integer.
+#' @param myRating String.
+#' @param onBehalfOfContentOwner String. 
+#' @param pageToken String.
+#' @param regionCode String.
+#' @param videoCategoryId String.
+#' @param token Required.
 #'
-#' @return
+#' @return data.frame()
 #' @export
 #'
 #' @examples
+#' \dontrun{
+#' data_video_request(part = "contentDetails",
+#'                           id = "dQw4w9WgXcQ")
+#' }
+
 data_video_request <- function(part = NULL, chart = NULL, hl = NULL, id = NULL, locale = NULL,
                                maxHeight = NULL, maxResults = NULL, maxWidth = NULL,
                                myRating = NULL, onBehalfOfContentOwner = NULL, pageToken = NULL,

@@ -10,12 +10,12 @@ youtube_GET(url = NULL, request = NULL, token = getOption("YouTube_Token"))
 \item{url}{Required. Url path for API request}
 
 \item{request}{Required. Used to specify if requesting data from the
-YouTube Analytics API or YouTube Data api. Either 'analytics' or 'data'}
+YouTube Analytics API or YouTube Data api. Either 'analytics' or 'data'.}
 
 \item{token}{Required.}
 }
 \value{
-Dataframe
+data.frame
 }
 \description{
 this is a helper function to execute GET requests and clean data
