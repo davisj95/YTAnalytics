@@ -1,3 +1,23 @@
+#' YouTube API OAuth
+#'
+#' This creates or grabs a token to authorize API requests
+#'
+#' @param clientId Required. Client Id obtained from console.cloud.google.com.
+#' @param clientSecret Required. Client Secret obtained from console.cloud.google.com
+#' @param tokenFile The name of the token httr-oauth file to read the token from. If the file does not exist then one will be created with the provided name.
+#' @param useOOB If \code{TRUE}, use oob method to copy/paste token into R.
+#' @param setEnvVar If \code{TRUE}, create an environment variable called "YouTube_Token" to store token.
+#'
+#' @return token environment
+#' @export
+#'
+#' @examples
+#' \dontrun{
+#' youtube_oauth("123456789asdalksdjfhaslkdjfb.apps.googleusercontent.com",
+#'               "MasdfH5320208ladshf790",
+#'               token = ".httr-oauth-myToken")
+#' }
+
 youtube_oauth <- function(clientId = NULL, clientSecret = NULL, tokenFile = ".httr-oauth",
                           useOOB = FALSE, setEnvVar = FALSE) {
   
@@ -13,7 +33,7 @@ youtube_oauth <- function(clientId = NULL, clientSecret = NULL, tokenFile = ".ht
         message(sprintf("%s successfully read", tokenFile))
       }
     )
-  } else if (!file.exists(tokenFile) | (file.exists(tokenFile) & is.null(token))) {
+  } else if (!file.exists(tokenFile) | (file.exists(tokenFile) & is.null(YouTubeToken))) {
     if (is.null(clientId) | is.null(clientSecret)) {
       stop("Missing App Credentials")
     } else {
@@ -23,7 +43,7 @@ youtube_oauth <- function(clientId = NULL, clientSecret = NULL, tokenFile = ".ht
                                                      "https://www.googleapis.com/auth/yt-analytics.readonly",
                                                      "https://www.googleapis.com/auth/youtubepartner"),
                                            cache = tokenFile,
-                                           use_oob = use_oob)
+                                           use_oob = useOOB)
     }
   }
   
