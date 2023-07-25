@@ -1,6 +1,7 @@
 
 #' YouTube GET Function
 #' 
+#' @description
 #' this is a helper function to execute GET requests and clean data 
 #' depending on what API is being called.
 #' This function can be but is not intended to be called directly.
@@ -66,6 +67,7 @@ youtube_GET <- function(url = NULL, request = NULL, token = getOption("YouTube_T
 
 #' Analytics Request Function - YouTube Analytics API
 #' 
+#' @description
 #' This is the function to make API calls to the YouTube Analytics API. Most other
 #' functions in this package are wrappers for this function with some arguments already populated.
 #'
@@ -124,6 +126,7 @@ analytics_request <- function(dimensions = NULL, metrics = NULL, sort = NULL,
 
 #' Channel Data Requests - YouTube Data API
 #' 
+#' @description 
 #' This is a function to make API calls to the YouTube Data API for channel specific data. 
 #' While it can be called directly, it is primarily intended to help get lists of videos within
 #' a channel. For more in-depth use of the Data API, please refer to \code{tuber}. For
@@ -178,6 +181,7 @@ data_channel_request <- function(part = NULL, categoryId = NULL, forUsername = N
 
 #' Playlist Data Requests - YouTube Data API
 #' 
+#' @description
 #' This is a function to make API calls to the YouTube Data API for playlist specific data.
 #' While it can be called directly, it is primarily intended to help get lists of videos within
 #' a playlist. For more in-depth use of the Data API, please refer to \code{tuber}. For
@@ -248,6 +252,7 @@ data_playlist_request <- function(part = NULL, channelId = NULL, hl = NULL, id =
 
 #' Playlist Item Data Requests - YouTube Data API
 #' 
+#' @description
 #' This is a function to make API calls to the YouTube Data API for playlist item data.
 #' While it can be called directly, it is primarily intended to help get lists of videos within
 #' a playlist. For more in-depth use of the Data API, please refer to \code{tuber}. For
@@ -316,6 +321,7 @@ data_playlistItem_request <- function(part = NULL, id = NULL, maxResults = 5,
 
 #' Video Data Requests - YouTube Data API
 #' 
+#' @description
 #' This is a function to make API calls to the YouTube Data API for video data.
 #' While it can be called directly, it is primarily inteded to help get metadata about videos
 #' such as title or description. For more in-depth use of the Data API, please refer to

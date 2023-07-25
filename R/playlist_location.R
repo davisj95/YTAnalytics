@@ -2,8 +2,10 @@
 
 #' Video Playback Location
 #' 
+#' @description
 #' Returns the type of page or application where video playbacks occurred.
-#' For more information, refer to 
+#' 
+#' @details For more information, refer to 
 #' \url{https://developers.google.com/youtube/analytics/dimensions#Playback_Location_Dimensions}
 #'
 #' @param videoId Required. String. Id of YouTube video.
@@ -27,8 +29,10 @@ video_playback_location <- function(videoId = NULL, ...) {
 
 #' Playlist Playback Location
 #' 
+#' @description
 #' Returns the type of page or application where video playbacks occurred.
-#' For more information, refer to 
+#' 
+#' @details For more information, refer to 
 #' \url{https://developers.google.com/youtube/analytics/dimensions#Playback_Location_Dimensions}
 #'
 #' @param playlistId Required. String. Id of YouTube playlist.
@@ -52,8 +56,10 @@ playlist_playback_location <- function(playlistId = NULL, ...) {
 
 #' Channel Playback Location
 #' 
+#' @description
 #' Returns the type of page or application where video playbacks occurred.
-#' For more information, refer to 
+#' 
+#' @details For more information, refer to 
 #' \url{https://developers.google.com/youtube/analytics/dimensions#Playback_Location_Dimensions}
 #'
 #' @param ... Addt. arguments passed to \code{analytics_request}

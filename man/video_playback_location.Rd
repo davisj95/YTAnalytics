@@ -16,6 +16,8 @@ data.frame
 }
 \description{
 Returns the type of page or application where video playbacks occurred.
+}
+\details{
 For more information, refer to
 \url{https://developers.google.com/youtube/analytics/dimensions#Playback_Location_Dimensions}
 }

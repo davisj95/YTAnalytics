@@ -2,6 +2,7 @@
 
 #' Video Live & OnDemand Data
 #' 
+#' @description
 #' Return video data split by live & on demand.
 #'
 #' @param videoId Required.String. Id of YouTube video.
@@ -23,13 +24,9 @@ video_live_onDemand <- function(videoId = NULL, ...) {
 }
 
 
-
-
-
-
-
 #' Playlist Live & OnDemand Data
 #' 
+#' @description
 #' Return playlist data split by live & on demand.
 #'
 #' @param playlistId Required. String. Id of YouTube playlist.
@@ -51,13 +48,9 @@ playlist_live_onDemand <- function(playlistId = NULL, ...) {
 }
 
 
-
-
-
-
-
 #' Channel Live & OnDemand Data
 #' 
+#' @description
 #' Return channel data split by live & on demand.
 #'
 #' @param ... Addt. arguments passed to \code{analytics_request}
