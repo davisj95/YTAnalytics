@@ -6,9 +6,9 @@
 \usage{
 analytics_request(
   dimensions = NULL,
-  metrics = NULL,
+  metrics = "views,estimatedMinutesWatched,shares,likes,dislikes,comments",
   sort = NULL,
-  maxResults = NULL,
+  maxResults = 10,
   filters = NULL,
   startDate = "2000-01-01",
   endDate = Sys.Date(),
@@ -55,6 +55,7 @@ data.frame
 \description{
 This is the function to make API calls to the YouTube Analytics API. Most other
 functions in this package are wrappers for this function with some arguments already populated.
+If none of the other prebuilt functions work for your use case, this is the function to turn to.
 }
 \examples{
 \dontrun{

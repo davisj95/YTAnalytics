@@ -40,7 +40,6 @@ video_subscription_status <- function(videoId = NULL, ...) {
 #' playlist_subscription_status(playlistId = "PL2MI040U_GXq1L5JUxNOulWCyXn-7QyZK")
 #' } 
 
-
 playlist_subscription_status <- function(playlistId = NULL, ...) {
   temp <- analytics_request(dimensions = "subscribedStatus",
                             metrics = "views,estimatedMinutesWatched",

@@ -69,7 +69,8 @@ youtube_GET <- function(url = NULL, request = NULL, token = getOption("YouTube_T
 #' 
 #' @description
 #' This is the function to make API calls to the YouTube Analytics API. Most other
-#' functions in this package are wrappers for this function with some arguments already populated.
+#' functions in this package are wrappers for this function with some arguments already populated. 
+#' If none of the other prebuilt functions work for your use case, this is the function to turn to.
 #'
 #' @param dimensions String. See \url{https://developers.google.com/youtube/analytics/dimensions}
 #'                   for valid arguments.
@@ -99,11 +100,22 @@ youtube_GET <- function(url = NULL, request = NULL, token = getOption("YouTube_T
 #'                   metrics = "views,comments,likes,dislikes,estimatedMinutesWatched")
 #' }
 
-analytics_request <- function(dimensions = NULL, metrics = NULL, sort = NULL,
-                              maxResults = NULL, filters = NULL, startDate = "2000-01-01",
-                              endDate = Sys.Date(), ids = "channel==MINE",currency = NULL,
-                              startIndex = NULL, includeHistoricalChannelData = NULL,
+analytics_request <- function(dimensions = NULL, 
+                              metrics = "views,estimatedMinutesWatched,shares,likes,dislikes,comments", 
+                              sort = NULL,
+                              maxResults = 10, 
+                              filters = NULL, 
+                              startDate = "2000-01-01",
+                              endDate = Sys.Date(), 
+                              ids = "channel==MINE",
+                              currency = NULL,
+                              startIndex = NULL, 
+                              includeHistoricalChannelData = NULL,
                               token = getOption("YouTube_Token")) {
+  
+  if(is.null(sort)) {
+    sort <- paste0("-",sub("\\,.*","", metrics))
+  }
   
   baseUrl <- "https://youtubeanalytics.googleapis.com/v2/reports?"
   params <- as.list(environment)
