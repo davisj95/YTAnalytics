@@ -59,12 +59,6 @@ youtube_GET <- function(url = NULL, request = NULL, token = getOption("YouTube_T
 
 
 
-
-
-
-
-
-
 #' Analytics Request Function - YouTube Analytics API
 #' 
 #' @description
@@ -129,13 +123,6 @@ analytics_request <- function(dimensions = NULL,
 
 
 
-
-
-
-
-
-
-
 #' Channel Data Requests - YouTube Data API
 #' 
 #' @description 
@@ -179,15 +166,6 @@ data_channel_request <- function(part = NULL, categoryId = NULL, forUsername = N
   temp <- youtube_GET(queryUrl, request = "data", token = token)
   return(temp)
 }
-
-
-
-
-
-
-
-
-
 
 
 
@@ -253,15 +231,6 @@ data_playlist_request <- function(part = NULL, channelId = NULL, hl = NULL, id =
 
 
 
-
-
-
-
-
-
-
-
-
 #' Playlist Item Data Requests - YouTube Data API
 #' 
 #' @description
@@ -322,15 +291,6 @@ data_playlistItem_request <- function(part = NULL, id = NULL, maxResults = 5,
 
 
 
-
-
-
-
-
-
-
-
-
 #' Video Data Requests - YouTube Data API
 #' 
 #' @description
@@ -378,4 +338,14 @@ data_video_request <- function(part = NULL, chart = NULL, hl = NULL, id = NULL, 
   temp <- youtube_GET(queryUrl, request = "data", token = token)
   
   return(temp)
+}
+
+
+
+#' Time Period Check
+#'
+#' @param period Required.
+
+time_period_check <- function(period) {
+  if(!(period %in% c("day", "month"))) stop("Period must be either 'day' or 'month'")
 }
