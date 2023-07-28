@@ -11,7 +11,7 @@ analytics_request(
   maxResults = 10,
   filters = NULL,
   startDate = "2000-01-01",
-  endDate = Sys.Date(),
+  endDate = as.character(Sys.Date()),
   ids = "channel==MINE",
   currency = NULL,
   startIndex = NULL,

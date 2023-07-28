@@ -15,7 +15,7 @@ video_cities(videoId = NULL, ...)
 data.frame
 }
 \description{
-Returns top cities by views
+Returns top cities by views. Data is only available after January 1, 2022.
 }
 \examples{
 \dontrun{

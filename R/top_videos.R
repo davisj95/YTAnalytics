@@ -40,7 +40,7 @@ playlist_top_videos <- function(playlistId = NULL, ...) {
 #' channel_top_videos()
 #' }
 
-channel_traffic_details <- function(...) {
+channel_top_videos <- function(...) {
   temp <- analytics_request(dimensions = "video", 
                             metrics = "views,estimatedMinutesWatched,averageViewDuration,shares,likes,dislikes,comments",
                             sort = "-views", ...)

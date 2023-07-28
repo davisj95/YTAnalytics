@@ -17,9 +17,10 @@
 #' } 
 
 video_demographics <- function(videoId = NULL, ...) {
-  temp <- analytics_request(dimensions = "ageGroup,Gender",
+  temp <- analytics_request(dimensions = "ageGroup,gender",
                             metrics = "viewerPercentage",
                             sort = "gender,ageGroup",
+                            maxResults = 25,
                             filters = paste0("video==", videoId), ...)
   return(temp)
 }
@@ -42,9 +43,10 @@ video_demographics <- function(videoId = NULL, ...) {
 #' } 
 
 playlist_demographics <- function(playlistId = NULL, ...) {
-  temp <- analytics_request(dimensions = "ageGroup,Gender",
+  temp <- analytics_request(dimensions = "ageGroup,gender",
                             metrics = "viewerPercentage",
                             sort = "gender,ageGroup",
+                            maxResults = 25,
                             filters = paste0("playlist==", playlistId), ...)
   return(temp)
 }
@@ -65,9 +67,10 @@ playlist_demographics <- function(playlistId = NULL, ...) {
 #' channel_demographics()
 #' }
 
-channel_cities <- function(...) {
+channel_demographics <- function(...) {
   temp <- analytics_request(dimensions = "ageGroup,gender",
                             metrics = "viewerPercentage",
-                            sort = "gender,ageGroup", ...)
+                            sort = "gender,ageGroup",
+                            maxResults = 25, ...)
   return(temp)
 }

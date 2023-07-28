@@ -24,7 +24,7 @@
 #'            "analytics")
 #' }
 
-youtube_GET <- function(url = NULL, request = NULL, token = getOption("YouTube_Token")){
+youtube_GET <- function(url = NULL, request = NULL, token){
   
   if(is.null(url) | is.null(request)) stop("url and request required.")
   
@@ -100,19 +100,22 @@ analytics_request <- function(dimensions = NULL,
                               maxResults = 10, 
                               filters = NULL, 
                               startDate = "2000-01-01",
-                              endDate = Sys.Date(), 
+                              endDate = as.character(Sys.Date()), 
                               ids = "channel==MINE",
                               currency = NULL,
                               startIndex = NULL, 
                               includeHistoricalChannelData = NULL,
                               token = getOption("YouTube_Token")) {
   
-  if(is.null(sort)) {
-    sort <- paste0("-",sub("\\,.*","", metrics))
-  }
+
   
   baseUrl <- "https://youtubeanalytics.googleapis.com/v2/reports?"
-  params <- as.list(environment)
+  params <- as.list(environment())
+  
+  if(is.null(params[["sort"]])) {
+    params[["sort"]] <- paste0("-",sub("\\,.*","", metrics))
+  }
+  
   paramsList <- Filter(Negate(is.null), params[params != "token"])
   
   queryUrl <- paste0(baseUrl, paste0("&", names(paramsList), "=", unlist(paramsList), collapse = ""))
@@ -158,8 +161,8 @@ data_channel_request <- function(part = NULL, categoryId = NULL, forUsername = N
                                  onBehalfOfContentOwner = NULL, pageToken = NULL,
                                  token = getOption("YouTube_Token")) {
   
-  baseUrl <- "https://www.googleapis.com/youtube/v3/channels?part="
-  params <- as.list(environment)
+  baseUrl <- paste0("https://www.googleapis.com/youtube/v3/channels?part=", part)
+  params <- as.list(environment())
   paramsList <- Filter(Negate(is.null), params[params != "token"])
   queryUrl <- paste0(baseUrl, paste0("&", names(paramsList), "=", unlist(paramsList), collapse = ""))
   
@@ -204,8 +207,8 @@ data_playlist_request <- function(part = NULL, channelId = NULL, hl = NULL, id =
                                   onBehalfOfContentOwnerChannel = NULL, pageToken = NULL,
                                   token = getOption("YouTube_Token")) {
   
-  baseUrl <- "https://www.googleapis.com/youtube/v3/playlists?part="
-  params <- as.list(environment)
+  baseUrl <- paste0("https://www.googleapis.com/youtube/v3/playlists?part=", part)
+  params <- as.list(environment())
   paramsList <- Filter(Negate(is.null), params[params != "token"])
   queryUrl <- paste0(baseUrl, paste0("&", names(paramsList), "=", unlist(paramsList), collapse = ""))
   
@@ -264,8 +267,8 @@ data_playlistItem_request <- function(part = NULL, id = NULL, maxResults = 5,
                                       playlistId = NULL, videoId = NULL,
                                       token = getOption("YouTube_Token")) {
   
-  baseUrl <- "https://www.googleapis.com/youtube/v3/playlistItems?part="
-  params <- as.list(environment)
+  baseUrl <- paste0("https://www.googleapis.com/youtube/v3/playlistItems?part=", part)
+  params <- as.list(environment())
   paramsList <- Filter(Negate(is.null), params[params != "token"])
   queryUrl <- paste0(baseUrl, paste0("&", names(paramsList), "=", unlist(paramsList), collapse = ""))
   
@@ -280,7 +283,7 @@ data_playlistItem_request <- function(part = NULL, id = NULL, maxResults = 5,
     while(!is.null(pageToken)) {
       
       loopUrl <- paste0(queryUrl, "&pageToken=",pageToken)
-      temp <- youtube_GET(loopUrl, request = "data")
+      temp <- youtube_GET(loopUrl, request = "data", token = token)
       df <- dplyr::bind_rows(df, temp$items$contentDetails)
       pageToken <- temp$nextPageToken
     }
@@ -330,8 +333,8 @@ data_video_request <- function(part = NULL, chart = NULL, hl = NULL, id = NULL, 
                                regionCode = NULL, videoCategoryId = NULL,
                                token = getOption("YouTube_Token")) {
   
-  baseUrl <- "https://www.googleapis.com/youtube/v3/videos?part="
-  params <- as.list(environment)
+  baseUrl <- paste0("https://www.googleapis.com/youtube/v3/videos?part=", part)
+  params <- as.list(environment())
   paramsList <- Filter(Negate(is.null), params[params != "token"])
   queryUrl <- paste0(baseUrl, paste0("&", names(paramsList), "=", unlist(paramsList), collapse = ""))
   

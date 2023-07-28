@@ -24,29 +24,6 @@ video_sharing_services <- function(videoId = NULL, ...) {
 }
 
 
-#' Playlist Sharing Services Data
-#' 
-#' @description
-#' Returns top sharing services by views
-#'
-#' @param playlistId Required. String. Id of YouTube playlist.
-#' @param ... Addt. arguments passed to \code{analytics_request}
-#'
-#' @return data.frame
-#' @export
-#'
-#' @examples
-#' \dontrun{
-#' playlist_sharing_services(playlistId = "PL2MI040U_GXq1L5JUxNOulWCyXn-7QyZK")
-#' } 
-
-playlist_sharing_services <- function(playlistId = NULL, ...) {
-  temp <- analytics_request(dimensions = "sharingService",
-                            metrics = "shares",
-                            filters = paste0("playlist==", playlistId), ...)
-  return(temp)
-}
-
 
 #' Channel Sharing Services Data
 #' 

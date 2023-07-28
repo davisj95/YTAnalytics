@@ -27,6 +27,8 @@ video_audience_retention <- function(videoId = NULL, audienceType = "ORGANIC", .
   
   temp <- analytics_request(dimensions = "elapsedVideoTimeRatio",
                             metrics = "audienceWatchRatio",
+                            maxResults = NULL,
+                            sort="elapsedVideoTimeRatio",
                             filters = paste0("video==", videoId,
                                              ";audienceType==", audienceType), ...)
   return(temp)

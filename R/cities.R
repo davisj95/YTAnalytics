@@ -3,7 +3,7 @@
 #' Video City Data
 #' 
 #' @description
-#' Returns top cities by views 
+#' Returns top cities by views. Data is only available after January 1, 2022.
 #' 
 #' @param videoId Required. String. Id of YouTube video.
 #' @param ... Addt. arguments passed to \code{analytics_request}
@@ -18,6 +18,7 @@
 
 video_cities <- function(videoId = NULL, ...) {
   temp <- analytics_request(dimensions = "city",
+                            metrics = "views,estimatedMinutesWatched",
                             filters = paste0("video==", videoId), ...)
   return(temp)
 }
@@ -26,7 +27,7 @@ video_cities <- function(videoId = NULL, ...) {
 #' Playlist City Data
 #' 
 #' @description
-#' Returns top cities by views
+#' Returns top cities by views. Data is only available after January 1, 2022.
 #'
 #' @param playlistId Required. String. Id of YouTube playlist.
 #' @param ... Addt. arguments passed to \code{analytics_request}
@@ -51,7 +52,7 @@ playlist_cities <- function(playlistId = NULL, ...) {
 #' Channel City Data
 #' 
 #' @description
-#' Returns top cities by views
+#' Returns top cities by views. Data is only available after January 1, 2022.
 #'
 #' @param ... Addt. arguments passed to \code{analytics_request}
 #'
@@ -64,6 +65,7 @@ playlist_cities <- function(playlistId = NULL, ...) {
 #' }
 
 channel_cities <- function(...) {
-  temp <- analytics_request(dimensions = "city", ...)
+  temp <- analytics_request(dimensions = "city", 
+                            metrics = "views,estimatedMinutesWatched", ...)
   return(temp)
 }

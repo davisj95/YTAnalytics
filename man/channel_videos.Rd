@@ -4,10 +4,10 @@
 \alias{channel_videos}
 \title{Channel Videos List}
 \usage{
-channel_videos(...)
+channel_videos(token = getOption("YouTube_Token"))
 }
 \arguments{
-\item{...}{Addt. arguments passed to \code{analytics_request}}
+\item{token}{YouTube token}
 }
 \value{
 data.frame

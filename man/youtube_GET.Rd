@@ -4,7 +4,7 @@
 \alias{youtube_GET}
 \title{YouTube GET Function}
 \usage{
-youtube_GET(url = NULL, request = NULL, token = getOption("YouTube_Token"))
+youtube_GET(url = NULL, request = NULL, token)
 }
 \arguments{
 \item{url}{Required. Url path for API request}

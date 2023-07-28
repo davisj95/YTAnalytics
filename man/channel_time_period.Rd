@@ -4,11 +4,18 @@
 \alias{channel_time_period}
 \title{Channel Time Period Views}
 \usage{
-channel_time_period(period = "day", ...)
+channel_time_period(
+  period = "day",
+  endDate = as.character(format(Sys.Date(), "\%Y-\%m-01")),
+  ...
+)
 }
 \arguments{
 \item{period}{Required. Time period to breakdown data by. Supported values are
 \code{day} and \code{month}}
+
+\item{endDate}{Required. String. Data returned up until the last day specified,
+so for monthly period the end date must end with a day of \code{01}}
 
 \item{...}{Addt. arguments passed to \code{analytics_request}}
 }

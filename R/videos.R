@@ -24,6 +24,30 @@ playlist_videos <- function(playlistId = NULL, ...) {
 }
 
 
+
+
+#' Channel Playlist List
+#'
+#' @param ... Addt. arguments passed to \code{data_playlist_request}
+#'
+#' @return data.frame
+#' @export
+#'
+#' @examples
+#' \dontrun{
+#' playlist_videos(playlistId = "PL2MI040U_GXq1L5JUxNOulWCyXn-7QyZK")
+#' } 
+
+channel_playlists <- function(...) {
+  temp <- data_playlist_request(part = "contentDetails", mine = "true", maxResults = 51, ...)
+  result <- temp
+  return(result)
+}
+
+
+
+
+
 #' Channel Videos List
 #' 
 #' @description
@@ -33,7 +57,7 @@ playlist_videos <- function(playlistId = NULL, ...) {
 #' all additional playlists from the channel, pull all video lists from all playlists,
 #' and append the result to the uploads return.
 #'
-#' @param ... Addt. arguments passed to \code{analytics_request}
+#' @param token YouTube token
 #'
 #' @return data.frame
 #' @export
@@ -43,20 +67,20 @@ playlist_videos <- function(playlistId = NULL, ...) {
 #' channel_videos()
 #' }
 
-channel_videos <- function(...) {
+channel_videos <- function(token = getOption("YouTube_Token")) {
   
-  channelData <- data_channel_request(part = "contentDetails", mine="true")
+  channelData <- data_channel_request(part = "contentDetails", mine="true", token = token)
   uploads <- channelData$contentDetails$relatedPlaylists$uploads
   
-  channelPlaylists <- channel_playlists()
+  channelPlaylists <- channel_playlists(token = token)
   
   allPlaylists <- unique(c(uploads, channelPlaylists$id))
   allVideos <- data.frame()
   
   for(i in allPlaylists) {
-    
+    print(i)
     temp <- data_playlistItem_request(part = "contentDetails",
-                                      playlistId = i, maxResults = 51, ...)
+                                      playlistId = i, maxResults = 51, token = token)
     allVideos <- dplyr::bind_rows(allVideos, temp)
     
   }

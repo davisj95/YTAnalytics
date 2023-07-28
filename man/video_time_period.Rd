@@ -4,13 +4,21 @@
 \alias{video_time_period}
 \title{Video Time Period Views}
 \usage{
-video_time_period(videoId = NULL, period = "day", ...)
+video_time_period(
+  videoId = NULL,
+  period = "day",
+  endDate = as.character(format(Sys.Date(), "\%Y-\%m-01")),
+  ...
+)
 }
 \arguments{
 \item{videoId}{Required. String. Id of YouTube video.}
 
 \item{period}{Required. Time period to breakdown data by. Supported values are
 \code{day} and \code{month}}
+
+\item{endDate}{Required. String. Data returned up until the last day specified,
+so for monthly period the end date must end with a day of \code{01}}
 
 \item{...}{Addt. arguments passed to \code{analytics_request}}
 }
