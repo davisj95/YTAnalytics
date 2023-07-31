@@ -9,6 +9,9 @@ time_period_check(period)
 \arguments{
 \item{period}{Required.}
 }
+\value{
+None
+}
 \description{
 Time Period Check
 }

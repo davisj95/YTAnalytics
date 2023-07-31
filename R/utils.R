@@ -347,7 +347,7 @@ data_video_request <- function(part = NULL, chart = NULL, hl = NULL, id = NULL, 
 #' Time Period Check
 #'
 #' @param period Required.
-#' @return \value{None}
+#' @return None
 
 time_period_check <- function(period) {
   if(!(period %in% c("day", "month"))) stop("Period must be either 'day' or 'month'")
