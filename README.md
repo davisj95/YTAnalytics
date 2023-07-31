@@ -32,7 +32,7 @@ devtools::install_github("davisj95/YTAnalytics")
 
 ## Authentication
 In order to use the YouTube APIs, you need do the following:
- 1. Create a Project in your [Google Developers Console](console.developer.google.com).
+ 1. Create a Project in your [Google Developers Console](https://console.cloud.google.com/welcome).
  2. Enable the YouTube Data and YouTube Analytics APIs in the developer library.
  3. Create an OAuth consent screen.
  4. Create OAuth authorization credentials.
