@@ -12,11 +12,10 @@
 #' @param token Required.
 #'
 #' @return data.frame
-#' @export
 #'
 #' @examples
 #' \dontrun{
-#' youtube_GET(paste0("https://youtubeanalytics.googleapis.com/v2/reports?",
+#' YTAnalytics:::youtube_GET(paste0("https://youtubeanalytics.googleapis.com/v2/reports?",
 #'                    "endDate=2018-05-01",
 #'                    "&ids=channel==MINE",
 #'                    "&metrics=views,comments,likes,dislikes,estimatedMinutesWatched",
@@ -348,6 +347,7 @@ data_video_request <- function(part = NULL, chart = NULL, hl = NULL, id = NULL, 
 #' Time Period Check
 #'
 #' @param period Required.
+#' @return \value{None}
 
 time_period_check <- function(period) {
   if(!(period %in% c("day", "month"))) stop("Period must be either 'day' or 'month'")
