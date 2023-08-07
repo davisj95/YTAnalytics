@@ -20,7 +20,7 @@ the returned data in a data.frame.
 `data_channel_request()`, `data_playlist_request()`, `data_playlistItem_request()`, and `data_video_request()` are
 wrappers for the YouTube Data API, meant only to help in getting some high level data or returning lists of videos in a 
 channel or playlist. For this purpose, added functionality is not present. For more YouTube Data API functionality, refer
-[here](https://github.com/soodoku/tuber) for the `tuber` package. To learn more about the YouTube Analytics API or to 
+[here](https://github.com/gojiplus/tuber) for the `tuber` package. To learn more about the YouTube Analytics API or to 
 experiment with their built-in app, [check them out here](https://developers.google.com/youtube/analytics/data_model).
  
 ## Installation
