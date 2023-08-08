@@ -78,7 +78,6 @@ channel_videos <- function(token = getOption("YouTube_Token")) {
   allVideos <- data.frame()
   
   for(i in allPlaylists) {
-    print(i)
     temp <- data_playlistItem_request(part = "contentDetails",
                                       playlistId = i, maxResults = 51, token = token)
     allVideos <- dplyr::bind_rows(allVideos, temp)
