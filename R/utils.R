@@ -13,15 +13,7 @@
 #'
 #' @return data.frame
 #'
-#' @examples
-#' \dontrun{
-#' youtube_GET(paste0("https://youtubeanalytics.googleapis.com/v2/reports?",
-#'                    "endDate=2018-05-01",
-#'                    "&ids=channel==MINE",
-#'                    "&metrics=views,comments,likes,dislikes,estimatedMinutesWatched",
-#'                    "&startDate=2017-01-01"),
-#'            "analytics")
-#' }
+
 
 youtube_GET <- function(url = NULL, request = NULL, token){
   
