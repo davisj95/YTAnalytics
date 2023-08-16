@@ -1,6 +1,6 @@
 # ![](https://cdn.emojidex.com/emoji/px32/YouTube.png?1512927079) YTAnalytics: R Wrapper for YouTube Analytics API
 
-[![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/YTAnalytics)]
+![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/YTAnalytics)
 
 ## Overview
 YTAnalytics is an R package designed to simplify data collection using the YouTube Analytics API. You can use this to get channel, 
