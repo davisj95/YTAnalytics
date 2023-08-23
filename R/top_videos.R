@@ -39,6 +39,6 @@ playlist_top_videos <- function(playlistId = NULL, ...) {
 #' }
 
 channel_top_videos <- function(...) {
-  temp <- analytics_request(dimensions = "video" ...)
+  temp <- analytics_request(dimensions = "video", ...)
   return(temp)
 }
