@@ -1,4 +1,5 @@
-# YTAnalytics (development version)
+# YTAnalytics 0.1.0 2023-08-30
+* Allows a vector of video ids or playlist ids to  be passed to `video` and `playlist functions`
 
 
 
