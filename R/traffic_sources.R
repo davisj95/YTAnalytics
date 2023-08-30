@@ -19,7 +19,7 @@
 video_traffic_sources <- function(videoId = NULL, ...) {
   
   results <- data.frame()
-  for(i in 1:length(results)) {
+  for(i in 1:length(videoId)) {
     temp <- analytics_request(dimensions = "insightTrafficSourceType",
                               metrics = "views,estimatedMinutesWatched",
                               filters = paste0("video==", videoId[i]), ...)
