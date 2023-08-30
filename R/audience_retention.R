@@ -25,11 +25,21 @@ video_audience_retention <- function(videoId = NULL, audienceType = "ORGANIC", .
     stop("Audience Type must be one of the following: ORGANIC, AD_INSTREAM, AD_INDISPLAY")
   }
   
-  temp <- analytics_request(dimensions = "elapsedVideoTimeRatio",
-                            metrics = "audienceWatchRatio",
-                            maxResults = NULL,
-                            sort="elapsedVideoTimeRatio",
-                            filters = paste0("video==", videoId,
-                                             ";audienceType==", audienceType), ...)
-  return(temp)
+  audienceRetention <- data.frame()
+  for(i in 1:length(videoId)) {
+    temp <- analytics_request(dimensions = "elapsedVideoTimeRatio",
+                              metrics = "audienceWatchRatio",
+                              maxResults = NULL,
+                              sort="elapsedVideoTimeRatio",
+                              filters = paste0("video==", videoId[i],
+                                               ";audienceType==", audienceType), ...)
+    if(!is.null(temp)) {
+      if(nrow(temp) > 0) {
+        temp$videoId <- videoId[i]
+        audienceRetention <- dplyr::bind_rows(audienceRetention, temp)
+      }
+    }
+  }
+  
+  return(audienceRetention)
 }
