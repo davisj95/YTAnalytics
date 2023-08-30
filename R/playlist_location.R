@@ -20,10 +20,17 @@
 #' }
 
 video_playback_location <- function(videoId = NULL, ...) {
-  temp <- analytics_request(dimensions = "insightPlaybackLocationType",
-                            metrics = "views,estimatedMinutesWatched",
-                            filters = paste0("video==", videoId), ...)
-  return(temp)
+  
+  results <- data.frame()
+  for(i in 1:length(videoId)) {
+    temp <- analytics_request(dimensions = "insightPlaybackLocationType",
+                              metrics = "views,estimatedMinutesWatched",
+                              filters = paste0("video==", videoId[i]), ...)
+    
+    results <- dplyr::bind_rows(results, error_checking(temp, videoId[i]))
+  }
+
+  return(results)
 }
 
 
@@ -47,10 +54,17 @@ video_playback_location <- function(videoId = NULL, ...) {
 #' }
 
 playlist_playback_location <- function(playlistId = NULL, ...) {
-  temp <- analytics_request(dimensions = "insightPlaybackLocationType",
-                            metrics = "views,estimatedMinutesWatched",
-                            filters = paste0("playlist==", playlistId, ";isCurated==1"), ...)
-  return(temp)
+  
+  results <- data.frame()
+  for(i in 1:length(playlistId)) {
+    temp <- analytics_request(dimensions = "insightPlaybackLocationType",
+                              metrics = "views,estimatedMinutesWatched",
+                              filters = paste0("playlist==", playlistId[i], ";isCurated==1"), ...)
+    
+    results <- dplyr::bind_rows(results, error_checking(temp, playlistId[i]))
+  }
+  
+  return(results)
 }
 
 

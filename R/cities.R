@@ -18,20 +18,16 @@
 
 video_cities <- function(videoId = NULL, ...) {
   
-  cities <- data.frame()
+  results <- data.frame()
   for(i in 1:length(videoId)) {
     temp <- analytics_request(dimensions = "city",
                               metrics = "views,estimatedMinutesWatched",
                               filters = paste0("video==", videoId[i]), ...)
-    if(!is.null(temp)) {
-      if(nrow(temp) > 0) {
-        temp$videoId <- videoId[i]
-        cities <- dplyr::bind_rows(cities, temp)
-      }
-    }
+    
+    results <- dplyr::bind_rows(results, error_checking(temp, videoId[i]))
   }
   
-  return(cities)
+  return(results)
 }
 
 
@@ -53,20 +49,17 @@ video_cities <- function(videoId = NULL, ...) {
 
 playlist_cities <- function(playlistId = NULL, ...) {
   
-  cities <- data.frame()
+  results <- data.frame()
   for(i in 1:length(playlistId)) {
     temp <- analytics_request(dimensions = "city",
                               metrics = "views,estimatedMinutesWatched",
                               filters = paste0("playlist==", playlistId[i]),
                               ...)
-    if(!is.null(temp)) {
-      if(nrow(temp) > 0) {
-        temp$playlistId <- playlistId[i]
-        cities <- dplyr::bind_rows(cities, temp)
-      }
-    }
+    
+    results <- dplyr::bind_rows(results, error_checking(temp, playlistId[i]))
   }
-  return(cities)
+  
+  return(results)
 }
 
 

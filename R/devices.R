@@ -17,10 +17,17 @@
 #' } 
 
 video_devices <- function(videoId = NULL, ...) {
-  temp <- analytics_request(dimensions = "deviceType",
-                            metrics = "views,estimatedMinutesWatched",
-                            filters = paste0("video==", videoId), ...)
-  return(temp)
+  
+  results <- data.frame()
+  for(i in 1:length(videoId)) {
+    temp <- analytics_request(dimensions = "deviceType",
+                              metrics = "views,estimatedMinutesWatched",
+                              filters = paste0("video==", videoId[i]), ...)
+    
+    results <- dplyr::bind_rows(results, error_checking(temp, videoId[i]))
+  }
+  
+  return(results)
 }
 
 
@@ -41,10 +48,17 @@ video_devices <- function(videoId = NULL, ...) {
 #' } 
 
 playlist_devices <- function(playlistId = NULL, ...) {
-  temp <- analytics_request(dimensions = "deviceType",
-                            metrics = "views,estimatedMinutesWatched",
-                            filters = paste0("playlist==", playlistId), ...)
-  return(temp)
+  
+  results <- data.frame()
+  for(i in 1:length(playlistId)) {
+    temp <- analytics_request(dimensions = "deviceType",
+                              metrics = "views,estimatedMinutesWatched",
+                              filters = paste0("playlist==", playlistId[i]), ...)
+    
+    results <- dplyr::bind_rows(results, error_checking(temp, playlistId[i]))
+  }
+  
+  return(results)
 }
 
 
