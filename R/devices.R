@@ -21,7 +21,6 @@ video_devices <- function(videoId = NULL, ...) {
   results <- data.frame()
   for(i in 1:length(videoId)) {
     temp <- analytics_request(dimensions = "deviceType",
-                              metrics = "views,estimatedMinutesWatched",
                               filters = paste0("video==", videoId[i]), ...)
     
     results <- dplyr::bind_rows(results, error_checking(temp, videoId[i]))
@@ -52,7 +51,6 @@ playlist_devices <- function(playlistId = NULL, ...) {
   results <- data.frame()
   for(i in 1:length(playlistId)) {
     temp <- analytics_request(dimensions = "deviceType",
-                              metrics = "views,estimatedMinutesWatched",
                               filters = paste0("playlist==", playlistId[i], ";isCurated==1"), ...)
     
     results <- dplyr::bind_rows(results, error_checking(temp, playlistId[i]))
@@ -78,7 +76,6 @@ playlist_devices <- function(playlistId = NULL, ...) {
 #' }
 
 channel_devices <- function(...) {
-  temp <- analytics_request(dimensions = "deviceType",
-                            metrics = "views,estimatedMinutesWatched", ...)
+  temp <- analytics_request(dimensions = "deviceType", ...)
   return(temp)
 }

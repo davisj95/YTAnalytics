@@ -21,7 +21,6 @@ video_cities <- function(videoId = NULL, ...) {
   results <- data.frame()
   for(i in 1:length(videoId)) {
     temp <- analytics_request(dimensions = "city",
-                              metrics = "views,estimatedMinutesWatched",
                               filters = paste0("video==", videoId[i]), ...)
     
     results <- dplyr::bind_rows(results, error_checking(temp, videoId[i]))
@@ -48,7 +47,6 @@ video_cities <- function(videoId = NULL, ...) {
 #' }
 
 channel_cities <- function(...) {
-  temp <- analytics_request(dimensions = "city", 
-                            metrics = "views,estimatedMinutesWatched", ...)
+  temp <- analytics_request(dimensions = "city", ...)
   return(temp)
 }

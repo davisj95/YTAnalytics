@@ -86,7 +86,7 @@ youtube_GET <- function(url = NULL, request = NULL, token){
 #' }
 
 analytics_request <- function(dimensions = NULL, 
-                              metrics = "views,estimatedMinutesWatched,shares,likes,dislikes,comments", 
+                              metrics = "views,estimatedMinutesWatched", 
                               sort = NULL,
                               maxResults = 10, 
                               filters = NULL, 

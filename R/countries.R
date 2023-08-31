@@ -51,7 +51,6 @@ playlist_countries <- function(playlistId = NULL, ...) {
   results <- data.frame()
   for(i in 1:length(playlistId)) {
     temp <- analytics_request(dimensions = "country",
-                              metrics = "views,estimatedMinutesWatched",
                               filters = paste0("playlist==", playlistId[i], ";isCurated==1"),
                               ...)
     

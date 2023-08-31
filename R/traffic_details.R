@@ -24,7 +24,6 @@ video_traffic_details <- function(videoId = NULL, trafficType = "EXT_URL",...) {
   results <- data.frame()
   for(i in 1:length(videoId)) {
     temp <- analytics_request(dimensions = "insightTrafficSourceDetail",
-                              metrics = "views,estimatedMinutesWatched",
                               filters = paste0("video==", videoId[i], 
                                                ";insightTrafficSourceType==", trafficType), ...)
     
@@ -59,7 +58,6 @@ playlist_traffic_details <- function(playlistId = NULL, trafficType = "EXT_URL",
   results <- data.frame()
   for(i in 1:length(playlistId)) {
     temp <- analytics_request(dimensions = "insightTrafficSourceDetail",
-                              metrics = "views,estimatedMinutesWatched",
                               filters = paste0("playlist==", playlistId[i], 
                                                ";insightTrafficSourceType==", trafficType, 
                                                ";isCurated==1"), ...)
@@ -91,7 +89,6 @@ playlist_traffic_details <- function(playlistId = NULL, trafficType = "EXT_URL",
 
 channel_traffic_details <- function(trafficType = "EXT_URL", ...) {
   temp <- analytics_request(dimensions = "insightTrafficSourceDetail", 
-                            metrics = "views,estimatedMinutesWatched",
                             filters = paste0("insightTrafficSourceType==", trafficType), ...)
   return(temp)
 }

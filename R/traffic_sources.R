@@ -21,7 +21,6 @@ video_traffic_sources <- function(videoId = NULL, ...) {
   results <- data.frame()
   for(i in 1:length(videoId)) {
     temp <- analytics_request(dimensions = "insightTrafficSourceType",
-                              metrics = "views,estimatedMinutesWatched",
                               filters = paste0("video==", videoId[i]), ...)
     
     results <- dplyr::bind_rows(results, error_checking(temp, videoId[i]))
@@ -52,7 +51,6 @@ playlist_traffic_sources <- function(playlistId = NULL, ...) {
   results <- data.frame()
   for(i in 1:length(playlistId)) {
     temp <- analytics_request(dimensions = "insightTrafficSourceType",
-                              metrics = "views,estimatedMinutesWatched",
                               filters = paste0("playlist==", playlistId[i], ";isCurated==1"),
                               ...)
     
@@ -79,7 +77,6 @@ playlist_traffic_sources <- function(playlistId = NULL, ...) {
 #' }
 
 channel_traffic_sources <- function(...) {
-  temp <- analytics_request(dimensions = "insightTrafficSourceType", 
-                            metrics = "views,estimatedMinutesWatched", ...)
+  temp <- analytics_request(dimensions = "insightTrafficSourceType", ...)
   return(temp)
 }

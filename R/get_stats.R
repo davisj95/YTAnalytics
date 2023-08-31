@@ -50,7 +50,6 @@ playlist_stats <- function(playlistId = NULL, ...) {
   results <- data.frame()
   for(i in 1:length(playlistId)) {
     temp <- analytics_request(filters = paste0("playlist==", playlistId[i], ";isCurated==1"),
-                              metrics="views,estimatedMinutesWatched",
                               ...)
     
     results <- dplyr::bind_rows(results, error_checking(temp, playlistId[i]))
