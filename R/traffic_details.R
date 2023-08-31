@@ -61,7 +61,8 @@ playlist_traffic_details <- function(playlistId = NULL, trafficType = "EXT_URL",
     temp <- analytics_request(dimensions = "insightTrafficSourceDetail",
                               metrics = "views,estimatedMinutesWatched",
                               filters = paste0("playlist==", playlistId[i], 
-                                               ";insightTrafficSourceType==", trafficType), ...)
+                                               ";insightTrafficSourceType==", trafficType, 
+                                               ";isCurated==1"), ...)
     
     results <- dplyr::bind_rows(results, error_checking(temp, playlistId[i]))
   }

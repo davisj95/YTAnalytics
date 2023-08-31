@@ -53,7 +53,7 @@ playlist_devices <- function(playlistId = NULL, ...) {
   for(i in 1:length(playlistId)) {
     temp <- analytics_request(dimensions = "deviceType",
                               metrics = "views,estimatedMinutesWatched",
-                              filters = paste0("playlist==", playlistId[i]), ...)
+                              filters = paste0("playlist==", playlistId[i], ";isCurated==1"), ...)
     
     results <- dplyr::bind_rows(results, error_checking(temp, playlistId[i]))
   }

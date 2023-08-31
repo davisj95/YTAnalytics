@@ -57,7 +57,7 @@ playlist_demographics <- function(playlistId = NULL, ...) {
                               metrics = "viewerPercentage",
                               sort = "gender,ageGroup",
                               maxResults = 25,
-                              filters = paste0("playlist==", playlistId[i]), ...)
+                              filters = paste0("playlist==", playlistId[i], ";isCurated==1"), ...)
    
     results <- dplyr::bind_rows(results, error_checking(temp, playlistId[i]))
   }
