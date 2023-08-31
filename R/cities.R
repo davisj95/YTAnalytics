@@ -31,37 +31,6 @@ video_cities <- function(videoId = NULL, ...) {
 }
 
 
-#' Playlist City Data
-#' 
-#' @description
-#' Returns top cities by views. Data is only available after January 1, 2022.
-#'
-#' @param playlistId Required. String. Id of YouTube playlist.
-#' @param ... Addt. arguments passed to \code{analytics_request}
-#'
-#' @return data.frame
-#' @export
-#'
-#' @examples
-#' \dontrun{
-#' playlist_cities(playlistId = "PL2MI040U_GXq1L5JUxNOulWCyXn-7QyZK")
-#' } 
-
-playlist_cities <- function(playlistId = NULL, ...) {
-  
-  results <- data.frame()
-  for(i in 1:length(playlistId)) {
-    temp <- analytics_request(dimensions = "city",
-                              metrics = "views,estimatedMinutesWatched",
-                              filters = paste0("playlist==", playlistId[i]),
-                              ...)
-    
-    results <- dplyr::bind_rows(results, error_checking(temp, playlistId[i]))
-  }
-  
-  return(results)
-}
-
 
 #' Channel City Data
 #' 
