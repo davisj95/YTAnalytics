@@ -355,7 +355,8 @@ time_period_check <- function(period) {
 #' Make sure that the data returned from the API is not blank
 #'
 #' @param ytResults data.frame. Results from API
-#' @param id Video or playlistId
+#' @param id string. Video or playlistId
+#' @param contentType string. Either "video" or "playlist" 
 #'
 #' @return data.frame
 #'

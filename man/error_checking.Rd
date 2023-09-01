@@ -4,12 +4,14 @@
 \alias{error_checking}
 \title{Error Check}
 \usage{
-error_checking(ytResults, id)
+error_checking(ytResults, id, contentType)
 }
 \arguments{
 \item{ytResults}{data.frame. Results from API}
 
-\item{id}{Video or playlistId}
+\item{id}{string. Video or playlistId}
+
+\item{contentType}{string. Either "video" or "playlist"}
 }
 \value{
 data.frame
