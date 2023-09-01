@@ -20,7 +20,7 @@ video_metadata <- function(videoId = NULL, ...) {
     temp <- as.data.frame(data_video_request(part = "snippet", id = videoId[i], ...))
     if(!is.null(temp)) {
       temp2 <- temp$items.snippet
-      metadata <- dplyr::bind_rows(metadata, temp2)
+      metadata <- dplyr::bind_rows(metadata, error_checking(temp2, videoId[i], "video"))
     }
   }
   return(metadata)

@@ -24,7 +24,7 @@ playlist_videos <- function(playlistId = NULL, ...) {
                                       playlistId = playlistId[i], 
                                       maxResults = 51, ...)
     
-    results <- dplyr::bind_rows(results, error_checking(temp, playlistId[i]))
+    results <- dplyr::bind_rows(results, error_checking(temp, playlistId[i], "playlist"))
   }
   
   return(results)
