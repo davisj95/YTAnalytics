@@ -365,7 +365,7 @@ error_checking <- function(ytResults, id, contentType) {
   
   if(!is.null(ytResults)) {
     if(nrow(ytResults) > 0) {
-      if(contentType == " video"){
+      if(contentType == "video"){
         ytResults$videoId <- id
       } else if(contentType == "playlist") {
         ytResults$playlistId <- id
