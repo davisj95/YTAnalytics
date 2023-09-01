@@ -31,7 +31,7 @@ video_time_period <- function(videoId = NULL, period = "day",
                               filters = paste0("video==", videoId[i]), 
                               sort = period, ...)
     
-    results <- dplyr::bind_rows(results, error_checking(temp, videoId[i]))
+    results <- dplyr::bind_rows(results, error_checking(temp, videoId[i], "video"))
   }
   
   return(results)

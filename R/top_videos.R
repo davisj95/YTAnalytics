@@ -23,7 +23,7 @@ playlist_top_videos <- function(playlistId = NULL, ...) {
     temp <- analytics_request(dimensions = "video",
                               filters = paste0("playlist==", playlistId[i]), ...)
     
-    results <- dplyr::bind_rows(results, error_checking(temp, playlistId[i]))
+    results <- dplyr::bind_rows(results, error_checking(temp, playlistId[i], "playlist"))
   }
   
   return(results)

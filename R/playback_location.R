@@ -26,7 +26,7 @@ video_playback_location <- function(videoId = NULL, ...) {
     temp <- analytics_request(dimensions = "insightPlaybackLocationType",
                               filters = paste0("video==", videoId[i]), ...)
     
-    results <- dplyr::bind_rows(results, error_checking(temp, videoId[i]))
+    results <- dplyr::bind_rows(results, error_checking(temp, videoId[i], "video"))
   }
 
   return(results)
@@ -59,7 +59,7 @@ playlist_playback_location <- function(playlistId = NULL, ...) {
     temp <- analytics_request(dimensions = "insightPlaybackLocationType",
                               filters = paste0("playlist==", playlistId[i], ";isCurated==1"), ...)
     
-    results <- dplyr::bind_rows(results, error_checking(temp, playlistId[i]))
+    results <- dplyr::bind_rows(results, error_checking(temp, playlistId[i], "playlist"))
   }
   
   return(results)

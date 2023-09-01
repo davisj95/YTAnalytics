@@ -20,9 +20,10 @@ video_stats <- function(videoId = NULL, ...) {
   
   results <- data.frame()
   for(i in 1:length(videoId)) {
+    print(i)
     temp <- analytics_request(filters = paste0("video==", videoId[i]), ...)
     
-    results <- dplyr::bind_rows(results, error_checking(temp, videoId[i]))
+    results <- dplyr::bind_rows(results, error_checking(temp, videoId[i], "video"))
   }
   
   return(results)
@@ -52,7 +53,7 @@ playlist_stats <- function(playlistId = NULL, ...) {
     temp <- analytics_request(filters = paste0("playlist==", playlistId[i], ";isCurated==1"),
                               ...)
     
-    results <- dplyr::bind_rows(results, error_checking(temp, playlistId[i]))
+    results <- dplyr::bind_rows(results, error_checking(temp, playlistId[i], "playlist"))
   }
   return(results)
 }

@@ -23,7 +23,7 @@ video_cities <- function(videoId = NULL, ...) {
     temp <- analytics_request(dimensions = "city",
                               filters = paste0("video==", videoId[i]), ...)
     
-    results <- dplyr::bind_rows(results, error_checking(temp, videoId[i]))
+    results <- dplyr::bind_rows(results, error_checking(temp, videoId[i], "video"))
   }
   
   return(results)

@@ -24,7 +24,7 @@ video_sharing_services <- function(videoId = NULL, ...) {
                               metrics = "shares",
                               filters = paste0("video==", videoId[i]), ...)
     
-    results <- dplyr::bind_rows(results, error_checking(temp, videoId[i]))
+    results <- dplyr::bind_rows(results, error_checking(temp, videoId[i], "video"))
   }
   
   return(results)

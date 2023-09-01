@@ -27,7 +27,7 @@ video_traffic_details <- function(videoId = NULL, trafficType = "EXT_URL",...) {
                               filters = paste0("video==", videoId[i], 
                                                ";insightTrafficSourceType==", trafficType), ...)
     
-    results <- dplyr::bind_rows(results, error_checking(temp, videoId[i]))
+    results <- dplyr::bind_rows(results, error_checking(temp, videoId[i], "video"))
   }
   
   return(results)
@@ -62,7 +62,7 @@ playlist_traffic_details <- function(playlistId = NULL, trafficType = "EXT_URL",
                                                ";insightTrafficSourceType==", trafficType, 
                                                ";isCurated==1"), ...)
     
-    results <- dplyr::bind_rows(results, error_checking(temp, playlistId[i]))
+    results <- dplyr::bind_rows(results, error_checking(temp, playlistId[i], "playlist"))
   }
 
   return(results)

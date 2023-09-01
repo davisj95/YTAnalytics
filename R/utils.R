@@ -360,11 +360,15 @@ time_period_check <- function(period) {
 #' @return data.frame
 #'
 
-error_checking <- function(ytResults, id) {
+error_checking <- function(ytResults, id, contentType) {
   
   if(!is.null(ytResults)) {
     if(nrow(ytResults) > 0) {
-      ytResults$videoId <- id
+      if(contentType == " video"){
+        ytResults$videoId <- id
+      } else if(contentType == "playlist") {
+        ytResults$playlistId <- id
+      }
     } else {
       message(sprintf("No results returned for %s", id))
       ytResults <- data.frame()

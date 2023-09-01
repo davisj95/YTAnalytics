@@ -23,7 +23,7 @@ video_countries <- function(videoId = NULL, ...) {
     temp <- analytics_request(dimensions = "country",
                               filters = paste0("video==", videoId[i]), ...)
     
-    results <- dplyr::bind_rows(results, error_checking(temp, videoId[i]))
+    results <- dplyr::bind_rows(results, error_checking(temp, videoId[i], "video"))
   }
   
   return(results)
@@ -54,7 +54,7 @@ playlist_countries <- function(playlistId = NULL, ...) {
                               filters = paste0("playlist==", playlistId[i], ";isCurated==1"),
                               ...)
     
-    results <- dplyr::bind_rows(results, error_checking(temp, playlistId[i]))
+    results <- dplyr::bind_rows(results, error_checking(temp, playlistId[i], "playlist"))
   }
   
   return(results)
