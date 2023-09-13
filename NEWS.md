@@ -1,4 +1,4 @@
-# YTAnalytics 0.1.0 2023-08-31
+# YTAnalytics 0.1.0 2023-09-13
 * Allows a vector of video ids or playlist ids to  be passed to `video` and `playlist functions`.
 * Fixed an issue with dates where dates not passed as characters threw errors. Date objects and strings are both acceptable now.
 * Fixed issues with most `playlist` functions that had `;isCurated==1` missing from its filters.
