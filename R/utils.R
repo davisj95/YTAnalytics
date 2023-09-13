@@ -371,11 +371,11 @@ error_checking <- function(ytResults, id, contentType) {
         ytResults$playlistId <- id
       }
     } else {
-      message(sprintf("No results returned for %s", id))
+      warning(sprintf("No results returned for %s", id))
       ytResults <- data.frame()
     }
   } else {
-    message(sprintf("No results returned for %s", id))
+    warning(sprintf("No results returned for %s", id))
     ytResults <- data.frame()
   }
   return(ytResults)
