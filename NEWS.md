@@ -4,6 +4,7 @@
 * Fixed issues with most `playlist` functions that had `;isCurated==1` missing from its filters.
 * Removed `playlist_cities` as playlist city information is not made available through the API.
 * Fixed typo with `playback_location` file name
+* Changed `error_checking` message to warning
 
 
 # YTAnalytics 0.0.5 2023-08-28
