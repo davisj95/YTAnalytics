@@ -45,6 +45,7 @@ video_stats <- function(videoId = NULL, ...) {
 #' playlist_stats(playlistId = "PL2MI040U_GXq1L5JUxNOulWCyXn-7QyZK")
 #' }
 
+
 playlist_stats <- function(playlistId = NULL, ...) {
   
   results <- data.frame()
