@@ -338,28 +338,12 @@ data_video_request <- function(part = NULL, chart = NULL, hl = NULL, id = NULL, 
 }
 
 
-
-#' Time Period Check
-#'
-#' @param period Required.
-#' @return None
+# helpers ---------------------------------------------------------------------
 
 time_period_check <- function(period) {
   if(!(period %in% c("day", "month"))) stop("Period must be either 'day' or 'month'")
 }
 
-
-
-#' Error Check
-#' 
-#' Make sure that the data returned from the API is not blank
-#'
-#' @param ytResults data.frame. Results from API
-#' @param id string. Video or playlistId
-#' @param contentType string. Either "video" or "playlist" 
-#'
-#' @return data.frame
-#'
 
 error_checking <- function(ytResults, id, contentType) {
   
@@ -380,3 +364,5 @@ error_checking <- function(ytResults, id, contentType) {
   }
   return(ytResults)
 }
+
+
