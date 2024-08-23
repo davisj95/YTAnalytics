@@ -31,30 +31,6 @@ playlist_videos <- function(playlistId = NULL, ...) {
 }
 
 
-
-
-#' Channel Playlist List
-#'
-#' @param ... Addt. arguments passed to \code{data_playlist_request}
-#'
-#' @return data.frame
-#' @export
-#'
-#' @examples
-#' \dontrun{
-#' playlist_videos(playlistId = "PL2MI040U_GXq1L5JUxNOulWCyXn-7QyZK")
-#' } 
-
-channel_playlists <- function(...) {
-  temp <- data_playlist_request(part = "contentDetails", mine = "true", maxResults = 51, ...)
-  result <- temp
-  return(result)
-}
-
-
-
-
-
 #' Channel Videos List
 #' 
 #' @description
