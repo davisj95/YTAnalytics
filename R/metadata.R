@@ -16,7 +16,9 @@
 video_metadata <- function(videoId = NULL, ...) {
   
   metadata <- data.frame()
+  pb <- prog_bar(length(videoId))
   for(i in 1:length(videoId)) {
+    pb$tick()
     temp <- as.data.frame(data_video_request(part = "snippet", id = videoId[i], ...))
     if(!is.null(temp)) {
       temp2 <- temp$items.snippet
@@ -44,7 +46,9 @@ video_metadata <- function(videoId = NULL, ...) {
 playlist_metadata <- function(playlistId = NULL, ...) {
   
   metadata <- data.frame()
+  pb <- prog_bar(length(playlistId))
   for(i in 1:length(playlistId)) {
+    pb$tick()
     temp <- as.data.frame(data_playlist_request(part = "snippet", id = playlistId[i], ...))
     if(!is.null(temp)) {
       temp2 <- temp$items.snippet

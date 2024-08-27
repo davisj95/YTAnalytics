@@ -351,3 +351,14 @@ error_checking <- function(ytResults, id, contentType) {
 }
 
 
+prog_bar <- function(iter) {
+  progress::progress_bar$new(
+    format = "[:bar] :percent [Elapsed time: :elapsedfull || ETA: :eta]",
+    total = iter,
+    complete = "=",
+    incomplete = "-",
+    current = ">",
+    clear = FALSE
+  )
+}
+

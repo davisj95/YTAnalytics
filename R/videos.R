@@ -19,7 +19,9 @@
 playlist_videos <- function(playlistId = NULL, ...) {
   
   results <- data.frame()
+  pb <- prog_bar(length(playlistId))
   for(i in 1:length(playlistId)) {
+    pb$tick()
     temp <- data_playlistItem_request(part = "contentDetails", 
                                       playlistId = playlistId[i], 
                                       maxResults = 51, ...)
