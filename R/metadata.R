@@ -57,15 +57,3 @@ playlist_metadata <- function(playlistId = NULL, ...) {
   }
   return(metadata)
 }
-test <- playlist_metadata(playlistId, token = newEnglishToken)
-
-videoId <- "DHBo7ka3YZQ"
-
-YTAnalytics::video_countries(videoId, metrics <- "views,estimatedMinutesWatched,subscribersGained", token = newEnglishToken)
-
-YTAnalytics::video_traffic_details(videoId, metrics <- "views,estimatedMinutesWatched,subscribersGained", token = newEnglishToken)
-
-testError <- "Invalid value (views,estimatedMinutesWatched,subscribersGained) given in field parameters.filters.globalinvalid"
-pattern <- "Invalid value \\(.*\\) given in field parameters\\.filters\\.globalinvalid"
-
-if (grepl(pattern, testError))
