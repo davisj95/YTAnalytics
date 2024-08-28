@@ -32,7 +32,7 @@ video_metadata <- function(videoId = NULL, ...) {
 
 #' Playlist Metadata
 #'
-#' @param videoId Required. String. Id of YouTube Video.
+#' @param playlistId Required. String. Id of YouTube Video.
 #' @param ... Addt. arguments passed to \code{data_video_request}
 #'
 #' @return data.frame
