@@ -45,25 +45,25 @@ youtube_oauth <- function(clientId = NULL,
       if (reAuthOnFail == TRUE) {
         
         tryCatch( {
-          tempToken <- get_token(clientId, clientSecret, useOOB, scopes)
+          tempToken <- get_token(clientId, clientSecret, tokenFile, useOOB, scopes)
           suppressWarnings(suppressMessages(channel_stats(token = tempToken)))
           message("Token successfully authenticated")
         }, error = function(f) {
-          token_error_handling(f$message, reAuthOnFail)
+          token_error_handling(f$message, reAuthOnFail, tokenFile)
         })
       } else {
-        token_error_handling(e$message, reAuthOnFail)
+        token_error_handling(e$message, reAuthOnFail, tokenFile)
       }
       
     }
     )
   } else {
     tryCatch( {
-      tempToken <- get_token(clientId, clientSecret, useOOB, scopes)
+      tempToken <- get_token(clientId, clientSecret, tokenFile, useOOB, scopes)
       suppressWarnings(suppressMessages(channel_stats(token = tempToken)))
       message("Token successfully authenticated")
     }, error = function(e) {
-      token_error_handling(e$message, reAuthOnFail)
+      token_error_handling(e$message, reAuthOnFail, tokenFile)
     })
   }
   
@@ -77,7 +77,7 @@ youtube_oauth <- function(clientId = NULL,
 
 # helpers ---------------------------------------------------------------------
 
-get_token <- function(clientId, clientSecret, useOOB, scopes) {
+get_token <- function(clientId, clientSecret, tokenFile, useOOB, scopes) {
   
   if (is.null(clientId) | is.null(clientSecret)) {
     stop("Missing App Credentials")
@@ -91,7 +91,7 @@ get_token <- function(clientId, clientSecret, useOOB, scopes) {
 }
 
 
-token_error_handling <- function(error, reAuthOnFail) {
+token_error_handling <- function(error, reAuthOnFail, tokenFile) {
   if (error == "Invalid CredentialsglobalauthErrorAuthorizationheader") {
     message("Your token has expired or been revoked.")
     unlink(tokenFile)
