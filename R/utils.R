@@ -29,9 +29,7 @@
 #'
 #' @examples
 #' \dontrun{
-#' analytics_request(startDate = "2018-05-01",
-#'                   endDate = "2017-01-01",
-#'                   metrics = "views,comments,likes,dislikes,estimatedMinutesWatched")
+#' analytics_request(startDate = "2018-05-01", endDate = "2017-01-01", metrics = "views,comments,likes,dislikes,estimatedMinutesWatched")
 #' }
 
 analytics_request <- function(dimensions = NULL, 
