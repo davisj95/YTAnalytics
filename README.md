@@ -1,10 +1,5 @@
----
-editor_options: 
-  markdown: 
-    wrap: 72
----
 
-# ![](https://cdn.emojidex.com/emoji/px32/YouTube.png?1512927079) YTAnalytics: R Wrapper for YouTube Analytics API
+YTAnalytics: R Wrapper for YouTube Analytics API
 
 <!-- badges: start -->
 
