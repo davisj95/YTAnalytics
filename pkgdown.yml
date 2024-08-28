@@ -2,7 +2,7 @@ pandoc: 3.1.11
 pkgdown: 2.1.0
 pkgdown_sha: ~
 articles: {}
-last_built: 2024-08-28T21:54Z
+last_built: 2024-08-28T22:18Z
 urls:
   reference: https://davisj95.github.io/YTAnalytics/reference
   article: https://davisj95.github.io/YTAnalytics/articles
