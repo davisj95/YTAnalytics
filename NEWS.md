@@ -1,3 +1,12 @@
+# YTAnalytics 0.2.0 2024-08-29
+* Added error checking functionality when reading in a token file. Previously a token file would be read in and print a message saying that the token was successfully read, but if the token was expired the user wouldn't know until making a request.
+* Added a progress bar to help track progress when passing vectors of video/playlist ids
+* Added the `playlist_metadata` function.
+* Fixed misc bugs like incorrect parameters being passed to functions or passing parameters that didn't exist
+* Added github pages website (davisj95.github.io/YTAnalytics)
+* Removed documentation for internal functions that aren't meant to be called directly
+
+
 # YTAnalytics 0.1.0 2023-09-13
 * Allows a vector of video ids or playlist ids to  be passed to `video` and `playlist functions`.
 * Fixed an issue with dates where dates not passed as characters threw errors. Date objects and strings are both acceptable now.

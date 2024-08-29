@@ -8,7 +8,15 @@
 
 ## Overview
 
-YTAnalytics is an R package designed to simplify data collection using the YouTube Analytics API. You can use this to get channel, playlist, and video data for your YouTube channel - just like what is found in YouTube Studio. Helpful data includes: \* Video/Playlist/Channel Statistics \* Daily/Monthly Views \* Location Data (Country/City) \* Demographics (Age/Gender) \* Devices \* Traffic Sources \* Sharing Services \* etc. etc.
+YTAnalytics is an R package designed to simplify data collection using the YouTube Analytics API. You can use this to get channel, playlist, and video data for your YouTube channel - just like what is found in YouTube Studio. Helpful data includes:
+
+-   Video/Playlist/Channel Statistics
+-   Daily/Monthly Views
+-   Location Data (Country/City)
+-   Demographics (Age/Gender)
+-   Devices
+-   Traffic Sources
+-   Sharing Services
 
 ## Details
 
