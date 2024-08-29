@@ -1,4 +1,9 @@
 url: https://davisj95.github.io/YTAnalytics/
+
 template:
   bootstrap: 5
+  bootswatch: simplex
+
+navbar:
+  bg: primary
 
