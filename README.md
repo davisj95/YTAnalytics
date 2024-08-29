@@ -35,7 +35,12 @@ devtools::install_github("davisj95/YTAnalytics")
 
 ## Authentication
 
-In order to use the YouTube APIs, you need do the following: 1. Create a Project in your [Google Developers Console](https://console.cloud.google.com/welcome). 2. Enable the YouTube Data and YouTube Analytics APIs in the developer library. 3. Create an OAuth consent screen. 4. Create OAuth authorization credentials.
+In order to use the YouTube APIs, you need do the following:
+
+1.  Create a Project in your [Google Developers Console](https://console.cloud.google.com/welcome).
+2.  Enable the YouTube Data and YouTube Analytics APIs in the developer library.
+3.  Create an OAuth consent screen.
+4.  Create OAuth authorization credentials.
 
 Once you have your client Id and Secret, use them in `youtube_oauth()` like the following:
 
@@ -47,7 +52,7 @@ An authentication token is created (by default stored in a file called `.httr-oa
 
 ## How To Use
 
-Once authenticated, there are many functions to choose from. Functions are mostly categorized in three categories: `channel`, `playlist`, and `video` data. Each function leads with the category name followed by the particular function. For example:
+Once authenticated, there are many functions to choose from. Functions mostly fall into three categories: `channel`, `playlist`, and `video` data. Each function leads with the category name followed by the particular function. For example:
 
 ### Channel
 
