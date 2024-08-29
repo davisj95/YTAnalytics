@@ -83,7 +83,13 @@
 <div class="section level2">
 <h2 id="authentication">Authentication<a class="anchor" aria-label="anchor" href="#authentication"></a>
 </h2>
-<p>In order to use the YouTube APIs, you need do the following: 1. Create a Project in your <a href="https://console.cloud.google.com/welcome" class="external-link">Google Developers Console</a>. 2. Enable the YouTube Data and YouTube Analytics APIs in the developer library. 3. Create an OAuth consent screen. 4. Create OAuth authorization credentials.</p>
+<p>In order to use the YouTube APIs, you need do the following:</p>
+<ol style="list-style-type: decimal">
+<li>Create a Project in your <a href="https://console.cloud.google.com/welcome" class="external-link">Google Developers Console</a>.</li>
+<li>Enable the YouTube Data and YouTube Analytics APIs in the developer library.</li>
+<li>Create an OAuth consent screen.</li>
+<li>Create OAuth authorization credentials.</li>
+</ol>
 <p>Once you have your client Id and Secret, use them in <code><a href="reference/youtube_oauth.html">youtube_oauth()</a></code> like the following:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="reference/youtube_oauth.html">youtube_oauth</a></span><span class="op">(</span>clientId <span class="op">=</span> <span class="va">YOURAPPID</span>, clientSecret <span class="op">=</span> <span class="va">YOURAPPSECRET</span><span class="op">)</span></span></code></pre></div>
@@ -92,7 +98,7 @@
 <div class="section level2">
 <h2 id="how-to-use">How To Use<a class="anchor" aria-label="anchor" href="#how-to-use"></a>
 </h2>
-<p>Once authenticated, there are many functions to choose from. Functions are mostly categorized in three categories: <code>channel</code>, <code>playlist</code>, and <code>video</code> data. Each function leads with the category name followed by the particular function. For example:</p>
+<p>Once authenticated, there are many functions to choose from. Functions mostly fall into three categories: <code>channel</code>, <code>playlist</code>, and <code>video</code> data. Each function leads with the category name followed by the particular function. For example:</p>
 <div class="section level3">
 <h3 id="channel">Channel<a class="anchor" aria-label="anchor" href="#channel"></a>
 </h3>
