@@ -295,7 +295,7 @@ youtube_GET <- function(url = NULL, request = NULL, token){
   
   if(is.null(url) | is.null(request)) stop("url and request required.")
   
-  r <- httr::GET(url, token)
+  r <- httr::GET(url, token, httr::config(http_version=2))
   temp <- jsonlite::fromJSON(httr::content(r, as = "text"))
   
   if(httr::status_code(r) != 200) stop(temp$error$errors)
