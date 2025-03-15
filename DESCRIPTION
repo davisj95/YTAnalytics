@@ -14,5 +14,5 @@ Imports:
     httr,
     jsonlite,
     progress
-URL: https://github.com/davisj95/YTAnalytics, https://davisj95.github.io/YTAnalytics/
+URL: https://github.com/davisj95/YTAnalytics, https://ytanalytics.org/
 BugReports: https://github.com/davisj95/YTAnalytics/issues
