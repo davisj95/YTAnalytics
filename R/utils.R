@@ -106,7 +106,7 @@ data_channel_request <- function(part = NULL, categoryId = NULL, forUsername = N
   
   baseUrl <- paste0("https://www.googleapis.com/youtube/v3/channels?part=", part)
   params <- as.list(environment())
-  paramsList <- Filter(Negate(is.null), params[params != "token"])
+  paramsList <- Filter(Negate(is.null), params[names(params) != "token"])
   queryUrl <- paste0(baseUrl, paste0("&", names(paramsList), "=", unlist(paramsList), collapse = ""))
   
   temp <- youtube_GET(queryUrl, request = "data", token = token)
@@ -152,7 +152,7 @@ data_playlist_request <- function(part = NULL, channelId = NULL, hl = NULL, id =
   
   baseUrl <- paste0("https://www.googleapis.com/youtube/v3/playlists?part=", part)
   params <- as.list(environment())
-  paramsList <- Filter(Negate(is.null), params[params != "token"])
+  paramsList <- Filter(Negate(is.null), params[names(params) != "token"])
   queryUrl <- paste0(baseUrl, paste0("&", names(paramsList), "=", unlist(paramsList), collapse = ""))
   
   temp <- youtube_GET(queryUrl, request = "data", token = token)
@@ -212,7 +212,7 @@ data_playlistItem_request <- function(part = NULL, id = NULL, maxResults = 5,
   
   baseUrl <- paste0("https://www.googleapis.com/youtube/v3/playlistItems?part=", part)
   params <- as.list(environment())
-  paramsList <- Filter(Negate(is.null), params[params != "token"])
+  paramsList <- Filter(Negate(is.null), params[names(params) != "token"])
   queryUrl <- paste0(baseUrl, paste0("&", names(paramsList), "=", unlist(paramsList), collapse = ""))
   
   temp <- youtube_GET(queryUrl, request = "data", token = token)
@@ -278,7 +278,7 @@ data_video_request <- function(part = NULL, chart = NULL, hl = NULL, id = NULL, 
   
   baseUrl <- paste0("https://www.googleapis.com/youtube/v3/videos?part=", part)
   params <- as.list(environment())
-  paramsList <- Filter(Negate(is.null), params[params != "token"])
+  paramsList <- Filter(Negate(is.null), params[names(params) != "token"])
   queryUrl <- paste0(baseUrl, paste0("&", names(paramsList), "=", unlist(paramsList), collapse = ""))
   
   temp <- youtube_GET(queryUrl, request = "data", token = token)
